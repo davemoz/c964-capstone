@@ -1,0 +1,11 @@
+{
+  "name": "dmoz-c964-capstone",
+  "version": "1.0.0",
+  "description": "Dave Mozdzanowski's C964 capstone project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dave Mozdzanowski",
+  "license": "ISC"
+}
