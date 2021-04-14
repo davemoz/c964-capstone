@@ -2,11 +2,14 @@ import time
 from datetime import timedelta
 from uuid import uuid4
 
-from firebase_admin import firestore, initialize_app
+from firebase_admin import credentials, firestore, initialize_app
+
+cred = credentials.Certificate(
+    './dmoz-c964-capstone-firebase-adminsdk-t5uvw-b37a902cc7.json')
 
 __all__ = ['send_to_firebase', 'update_firebase_snapshot']
 
-initialize_app()
+initialize_app(cred)
 
 
 def send_to_firebase(raw_notification):
