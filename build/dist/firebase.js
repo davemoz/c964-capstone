@@ -1,15 +1,21 @@
+// Firebase App (the core Firebase SDK) is always required and must be listed first
+import firebase from "../_snowpack/pkg/firebase/app.js";
+
+// Add the Firebase products that you want to use
+// import "firebase/auth";
+import "../_snowpack/pkg/firebase/firestore.js";
+
 // you should set your firebaseConfig file
 // visit https://console.firebase.google.com/u/1/project/projectID/settings/general/
-var firebaseConfig = {
-	apiKey: "######YOUR API KEY#####",
-	authDomain: "projectId.firebaseapp.com",
-	databaseURL: "https://projectId.firebaseio.com",
-	projectId: "projectId",
-	storageBucket: "projectId.appspot.com",
-	messagingSenderId: "######messagingSenderId######",
-	appId: "######## appI d#########",
-	measurementId: "#### measurementId ####"
+const firebaseConfig = {
+  apiKey: "AIzaSyD2IIJ2kdbt9UZtKJv0QlM28Q1ReIwcEZg",
+  authDomain: "dmoz-c964-capstone.firebaseapp.com",
+  projectId: "dmoz-c964-capstone",
+  storageBucket: "dmoz-c964-capstone.appspot.com",
+  messagingSenderId: "833467142570",
+  appId: "1:833467142570:web:28d43015fd0a08555adbd3"
 };
+
 firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();

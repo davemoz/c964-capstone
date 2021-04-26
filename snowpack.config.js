@@ -21,8 +21,5 @@ module.exports = {
 		}],
 		"@snowpack/plugin-react-refresh",
     "@snowpack/plugin-dotenv"
-  ],
-	optimize: {
-		bundle: true,
-	}
+  ]
 };
