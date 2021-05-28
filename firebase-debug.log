@@ -1,0 +1,177 @@
+[debug] [2021-05-28T18:46:13.488Z] ----------------------------------------------------------------------
+[debug] [2021-05-28T18:46:13.489Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2021-05-28T18:46:13.490Z] CLI Version:   9.12.0
+[debug] [2021-05-28T18:46:13.490Z] Platform:      darwin
+[debug] [2021-05-28T18:46:13.490Z] Node Version:  v14.15.0
+[debug] [2021-05-28T18:46:13.491Z] Time:          Fri May 28 2021 14:46:13 GMT-0400 (Eastern Daylight Time)
+[debug] [2021-05-28T18:46:13.491Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-28T18:46:13.498Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-28T18:46:13.498Z] > authorizing via signed-in user (davejmoz@gmail.com)
+[debug] [2021-05-28T18:46:13.498Z] [iam] checking project dmoz-c964-capstone for permissions ["cloudconfig.configs.get","cloudconfig.configs.update","cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-05-28T18:46:13.500Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-28T18:46:13.500Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-28T18:46:13.653Z] <<< HTTP RESPONSE 200 {"date":"Fri, 28 May 2021 18:46:13 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:13.699Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/dmoz-c964-capstone:testIamPermissions  
+ {"permissions":["cloudconfig.configs.get","cloudconfig.configs.update","cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-05-28T18:46:13.933Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:14 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=33","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:13.934Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/dmoz-c964-capstone/serviceAccounts/dmoz-c964-capstone@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2021-05-28T18:46:14.074Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:14 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:14.076Z] > refreshing access token with scopes: []
+[debug] [2021-05-28T18:46:14.076Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-28T18:46:14.191Z] <<< HTTP RESPONSE 200 {"date":"Fri, 28 May 2021 18:46:14 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:14.235Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/dmoz-c964-capstone [none]
+[debug] [2021-05-28T18:46:14.665Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/dmoz-c964-capstone 200
+[debug] [2021-05-28T18:46:14.665Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/dmoz-c964-capstone {"projectId":"dmoz-c964-capstone","projectNumber":"833467142570","displayName":"dmoz-c964-capstone","name":"projects/dmoz-c964-capstone","resources":{"hostingSite":"dmoz-c964-capstone","storageBucket":"dmoz-c964-capstone.appspot.com","locationId":"us-east1"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'dmoz-c964-capstone'...
+[info] 
+[info] i  deploying firestore, functions, hosting, remoteconfig 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script. 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2021-05-28T18:46:16.508Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-28T18:46:16.508Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-28T18:46:16.630Z] <<< HTTP RESPONSE 200 {"date":"Fri, 28 May 2021 18:46:16 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:16.676Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/dmoz-c964-capstone:test  
+ {"source":{"files":[{"name":"firestore.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n    \tallow write: if request.auth.uid != null;\n      allow read: if true;\n    }\n  }\n}"}]}}
+[debug] [2021-05-28T18:46:16.916Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:17 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2021-05-28T18:46:17.360Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/dmoz-c964-capstone/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2021-05-28T18:46:17.361Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/dmoz-c964-capstone/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2021-05-28T18:46:17.361Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/dmoz-c964-capstone/services/cloudbuild.googleapis.com  
+ 
+[debug] [2021-05-28T18:46:18.055Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:18.136Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[warn] ⚠  functions: missing required API cloudbuild.googleapis.com. Enabling now... 
+[debug] [2021-05-28T18:46:18.137Z] >>> HTTP REQUEST POST https://serviceusage.googleapis.com/v1/projects/dmoz-c964-capstone/services/cloudbuild.googleapis.com:enable  
+ 
+[debug] [2021-05-28T18:46:18.194Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2021-05-28T18:46:18.890Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:28.894Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/dmoz-c964-capstone/services/cloudbuild.googleapis.com  
+ 
+[debug] [2021-05-28T18:46:29.604Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:29 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2021-05-28T18:46:29.607Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/dmoz-c964-capstone/adminSdkConfig  
+ 
+[debug] [2021-05-28T18:46:30.033Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:30 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  functions: preparing functions directory for uploading... 
+[debug] [2021-05-28T18:46:30.034Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/dmoz-c964-capstone/configs  
+ 
+[debug] [2021-05-28T18:46:30.475Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:30 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:30.476Z] Analyizing backend with strategy parseJSExports
+[debug] [2021-05-28T18:46:30.590Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "12"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^9.2.0",
+    "firebase-functions": "^3.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2021-05-28T18:46:30.591Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/dmoz-c964-capstone/locations/-/functions  
+ 
+[debug] [2021-05-28T18:46:31.366Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:31 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:31.369Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/dmoz-c964-capstone/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-05-28T18:46:32.257Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:32 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:32.258Z] > refreshing access token with scopes: []
+[debug] [2021-05-28T18:46:32.258Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-28T18:46:32.380Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Fri, 28 May 2021 18:46:32 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:32.425Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/dmoz-c964-capstone [none]
+[debug] [2021-05-28T18:46:32.771Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/dmoz-c964-capstone 200
+[debug] [2021-05-28T18:46:32.771Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/dmoz-c964-capstone {"projectId":"dmoz-c964-capstone","projectNumber":"833467142570","displayName":"dmoz-c964-capstone","name":"projects/dmoz-c964-capstone","resources":{"hostingSite":"dmoz-c964-capstone","storageBucket":"dmoz-c964-capstone.appspot.com","locationId":"us-east1"},"state":"ACTIVE"}
+[debug] [2021-05-28T18:46:32.771Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-28T18:46:32.771Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-28T18:46:32.889Z] <<< HTTP RESPONSE 200 {"date":"Fri, 28 May 2021 18:46:33 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:32.933Z] >>> HTTP REQUEST GET https://firebaseremoteconfig.googleapis.com/v1/projects/833467142570/remoteConfig  
+ 
+[debug] [2021-05-28T18:46:33.466Z] <<< HTTP RESPONSE 200 {"etag":"etag-833467142570-0","content-type":"application/json; charset=UTF-8","vary":"Origin, X-Origin, Referer","content-encoding":"gzip","date":"Fri, 28 May 2021 18:46:33 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:33.469Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/dmoz-c964-capstone/releases?pageSize=10&pageToken=  
+ 
+[debug] [2021-05-28T18:46:33.469Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/dmoz-c964-capstone/databases/(default)/collectionGroups/-/indexes  
+ 
+[debug] [2021-05-28T18:46:33.623Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:33 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:33.625Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/dmoz-c964-capstone/rulesets/9bcbd45e-a468-4527-b792-a3f1ce619f7b  
+ 
+[debug] [2021-05-28T18:46:33.763Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:33 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload... 
+[debug] [2021-05-28T18:46:33.924Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:34 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:33.925Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/dmoz-c964-capstone/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2021-05-28T18:46:34.300Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:34 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully 
+[info] i  hosting[dmoz-c964-capstone]: beginning deploy... 
+[info] i  hosting[dmoz-c964-capstone]: found 3 files in public 
+[debug] [2021-05-28T18:46:34.317Z] > refreshing access token with scopes: []
+[debug] [2021-05-28T18:46:34.318Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-28T18:46:34.319Z] [hosting] hash cache [cHVibGlj] stored for 3 files
+[debug] [2021-05-28T18:46:34.320Z] [hosting][hash queue][FINAL] {"max":6,"min":3,"avg":4,"active":0,"complete":3,"success":3,"errored":0,"retried":0,"total":3,"elapsed":9}
+[debug] [2021-05-28T18:46:34.436Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Fri, 28 May 2021 18:46:34 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:34.483Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60:populateFiles [none]
+[debug] [2021-05-28T18:46:34.483Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60:populateFiles {"files":{"/index.html":"7f7c5c815191e38ad0fb681b24b701ce50be4b3b56ef2307a2b3f94beac9fa5d","/vercel.svg":"52e0371390cc99e009fdfa1f1c9559010afed60b86f5caaf036bf9bc14ab2501","/favicon.ico":"cdf24ec527bf763c3c393f020b80fcf9f0535c1068c6d0494de42167e4288e87"}}
+[debug] [2021-05-28T18:46:35.141Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60:populateFiles 200
+[debug] [2021-05-28T18:46:35.141Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60:populateFiles {"uploadRequiredHashes":["7f7c5c815191e38ad0fb681b24b701ce50be4b3b56ef2307a2b3f94beac9fa5d","52e0371390cc99e009fdfa1f1c9559010afed60b86f5caaf036bf9bc14ab2501","cdf24ec527bf763c3c393f020b80fcf9f0535c1068c6d0494de42167e4288e87"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files"}
+[debug] [2021-05-28T18:46:35.142Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/7f7c5c815191e38ad0fb681b24b701ce50be4b3b56ef2307a2b3f94beac9fa5d [none]
+[debug] [2021-05-28T18:46:35.142Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/7f7c5c815191e38ad0fb681b24b701ce50be4b3b56ef2307a2b3f94beac9fa5d [stream]
+[debug] [2021-05-28T18:46:35.143Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/52e0371390cc99e009fdfa1f1c9559010afed60b86f5caaf036bf9bc14ab2501 [none]
+[debug] [2021-05-28T18:46:35.144Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/52e0371390cc99e009fdfa1f1c9559010afed60b86f5caaf036bf9bc14ab2501 [stream]
+[debug] [2021-05-28T18:46:35.144Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/cdf24ec527bf763c3c393f020b80fcf9f0535c1068c6d0494de42167e4288e87 [none]
+[debug] [2021-05-28T18:46:35.145Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/cdf24ec527bf763c3c393f020b80fcf9f0535c1068c6d0494de42167e4288e87 [stream]
+[debug] [2021-05-28T18:46:35.146Z] [hosting][populate queue][FINAL] {"max":825,"min":825,"avg":825,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":829}
+[debug] [2021-05-28T18:46:35.146Z] [hosting] uploads queued: 3
+[debug] [2021-05-28T18:46:35.788Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/7f7c5c815191e38ad0fb681b24b701ce50be4b3b56ef2307a2b3f94beac9fa5d 200
+[debug] [2021-05-28T18:46:35.788Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/7f7c5c815191e38ad0fb681b24b701ce50be4b3b56ef2307a2b3f94beac9fa5d [stream]
+[debug] [2021-05-28T18:46:35.789Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/cdf24ec527bf763c3c393f020b80fcf9f0535c1068c6d0494de42167e4288e87 200
+[debug] [2021-05-28T18:46:35.790Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/cdf24ec527bf763c3c393f020b80fcf9f0535c1068c6d0494de42167e4288e87 [stream]
+[debug] [2021-05-28T18:46:35.791Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/52e0371390cc99e009fdfa1f1c9559010afed60b86f5caaf036bf9bc14ab2501 200
+[debug] [2021-05-28T18:46:35.791Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dmoz-c964-capstone/versions/fe867d8fb7d42f60/files/52e0371390cc99e009fdfa1f1c9559010afed60b86f5caaf036bf9bc14ab2501 [stream]
+[debug] [2021-05-28T18:46:35.791Z] [hosting][upload queue][FINAL] {"max":649,"min":648,"avg":648.3333333333334,"active":0,"complete":3,"success":3,"errored":0,"retried":0,"total":3,"elapsed":650}
+[info] ✔  hosting[dmoz-c964-capstone]: file upload complete 
+[debug] [2021-05-28T18:46:35.791Z] [hosting] deploy completed after 1489ms
+[debug] [2021-05-28T18:46:35.792Z] [rules] releasing cloud.firestore with ruleset projects/dmoz-c964-capstone/rulesets/9bcbd45e-a468-4527-b792-a3f1ce619f7b
+[debug] [2021-05-28T18:46:35.793Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-28T18:46:35.793Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-28T18:46:35.919Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Fri, 28 May 2021 18:46:36 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:35.963Z] >>> HTTP REQUEST PATCH https://firebaserules.googleapis.com/v1/projects/dmoz-c964-capstone/releases/cloud.firestore  
+ {"release":{"name":"projects/dmoz-c964-capstone/releases/cloud.firestore","rulesetName":"projects/dmoz-c964-capstone/rulesets/9bcbd45e-a468-4527-b792-a3f1ce619f7b"}}
+[debug] [2021-05-28T18:46:36.124Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 28 May 2021 18:46:36 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-28T18:46:36.124Z] [rules] updated release projects/dmoz-c964-capstone/releases/cloud.firestore
+[info] ✔  firestore: released rules firestore.rules to cloud.firestore 
+[debug] [2021-05-28T18:46:36.236Z] TypeError: Reduce of empty array with no initial value
+    at Array.reduce (<anonymous>)
+    at release (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release.js:47:10)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[error] 
+[error] Error: An unexpected error has occurred.
