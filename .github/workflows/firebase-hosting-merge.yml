@@ -10,11 +10,7 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
-      - name: Checkout
       - uses: actions/checkout@v2
-      - name: Install Packages
       - run: npm ci
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
