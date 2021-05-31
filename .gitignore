@@ -29,6 +29,8 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+dmoz-c964-capstone-63147ccf1bdf.json
+dmoz-c964-capstone-firebase-adminsdk-t5uvw-b37a902cc7.json
 
 # vercel
 .vercel
