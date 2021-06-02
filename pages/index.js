@@ -1,7 +1,15 @@
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import Header from "../components/Header";
-import Image from "next/image";
+import DataGrid from "../components/DataGrid";
+
 import styles from "../styles/Home.module.css";
+
+import Loading from "../components/Loading";
+const Map = dynamic(() => import("../components/Map"), {
+  ssr: false,
+  loading: () => <Loading />,
+});
 
 export default function Home() {
   return (
@@ -24,12 +32,9 @@ export default function Home() {
           description="Use the interface below to view vaccine allocation data."
         />
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-        </div>
+        <DataGrid addlClassNames={styles.grid} />
+
+        <Map />
       </main>
 
       <footer className={styles.footer}>

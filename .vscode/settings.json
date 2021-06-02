@@ -1,4 +1,1 @@
-{
-  // "python.analysis.extraPaths": ["./python"],
-  "python.pythonPath": "/usr/bin/python3"
-}
+{}

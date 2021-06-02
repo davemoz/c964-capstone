@@ -9,5 +9,6 @@ module.exports = {
     "quote-props": 0,
     quotes: ["error", "double"],
     "max-len": 0,
+    indent: ["error", 2],
   },
 };
