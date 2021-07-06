@@ -1,23 +1,33 @@
+import { useState, useEffect } from "react";
 import { NYC_COVID_DATA_JSON, NYC_BOROUGH_BOUNDARIES_JSON } from "./constants";
-import useSWR from "swr";
-import fetcher from "./fetcher";
+import * as d3 from "d3";
 
-export function useCovidData() {
-  const { data, error } = useSWR(NYC_COVID_DATA_JSON, fetcher);
+export const useCovidData = () => {
+  const [data, setData] = useState(undefined);
 
-  return {
-    data: data,
-    isLoading: !error && !data,
-    isError: error,
+  const getData = async () => {
+    if (data) {
+      return data;
+    }
+
+    setData(await d3.json(NYC_COVID_DATA_JSON));
   };
-}
+  getData();
 
-export function useBoroughs() {
-  const { data, error } = useSWR(NYC_BOROUGH_BOUNDARIES_JSON, fetcher);
+  return data;
+};
 
-  return {
-    data: data,
-    isLoading: !error && !data,
-    isError: error,
+export const useBoroughBoundaries = () => {
+  const [boroughBoundaries, setBoroughBoundaries] = useState(undefined);
+
+  const getBoundaries = async () => {
+    if (boroughBoundaries) {
+      return boroughBoundaries;
+    }
+
+    setBoroughBoundaries(await d3.json(NYC_BOROUGH_BOUNDARIES_JSON));
   };
-}
+  getBoundaries();
+
+  return boroughs;
+};

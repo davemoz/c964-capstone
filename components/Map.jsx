@@ -8,7 +8,7 @@ import {
   Tooltip,
 } from "react-leaflet";
 import { GEOAPIFY_API_URL, GEOAPIFY_API_KEY } from "../utils/constants";
-import { useBoroughs } from "../utils/hooks";
+import { useBoroughBoundaries } from "../utils/hooks";
 import { boroughColorsByCode } from "../utils/boroughs";
 import styles from "../styles/Map.module.css";
 import "../node_modules/leaflet/dist/leaflet.css";
@@ -28,7 +28,7 @@ const ICON = icon({
 });
 
 const Map = () => {
-  const { data, isLoading, isError } = useBoroughs();
+  const boroughs = useBoroughBoundaries();
   return (
     <MapContainer
       id={styles.mapid}
@@ -45,7 +45,7 @@ const Map = () => {
           `&apiKey=${GEOAPIFY_API_KEY}`
         }
       />
-      {data?.map((borough, idx) => {
+      {boroughs?.map((borough, idx) => {
         const reversedBoroCoords = borough.the_geom.coordinates.map((area) =>
           area[0].map((coords) => coords.reverse())
         );

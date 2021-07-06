@@ -2,22 +2,21 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import Header from "../components/Header";
 import DataGrid from "../components/DataGrid";
-
-import styles from "../styles/Home.module.css";
-
 import Loading from "../components/Loading";
 const Map = dynamic(() => import("../components/Map"), {
   ssr: false,
   loading: () => <Loading />,
 });
 
+import styles from "../styles/Home.module.css";
+
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
         <title>
-          Dave Mozdzanowski - C964 Capstone - COVID-19 vaccine resource
-          allocator
+          Dave Mozdzanowski - C964 Capstone - COVID-19 Resource Allocation Data
+          Product
         </title>
         <meta
           name="description"
@@ -28,17 +27,15 @@ export default function Home() {
 
       <main className={styles.main}>
         <Header
-          title="Dave Mozdzanowski - C964 Capstone - COVID-19 vaccine resource allocator"
-          description="Use the interface below to view vaccine allocation data."
+          title="Dave Mozdzanowski - C964 Capstone - COVID-19 Resource Allocation Data Product"
+          description="Use the interface below to sort and view data."
         />
-
         <DataGrid addlClassNames={styles.grid} />
-
-        <Map />
       </main>
 
       <footer className={styles.footer}>
-        David Mozdzanowski - C964 Capstone - COVID-19 vaccine resource allocator
+        David Mozdzanowski - C964 Capstone - COVID-19 Resource Allocation Data
+        Product
       </footer>
     </div>
   );

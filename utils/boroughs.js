@@ -1,7 +1,16 @@
+const boroughs = {
+  All: "all",
+  Brooklyn: "bk",
+  Bronx: "bx",
+  Manhattan: "mn",
+  Queens: "qn",
+  "Staten Island": "si",
+};
+
 const boroughColors = ["green", "blue", "red", "purple", "orange"];
 
-let boroughColorsByCode = new Map(
+const boroughColorsByCode = new Map(
   boroughColors.map((color, idx) => [idx + 1, color])
 );
 
-export { boroughColorsByCode };
+export { boroughs, boroughColorsByCode };
