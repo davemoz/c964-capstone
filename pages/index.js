@@ -5,6 +5,7 @@ import DataGrid from "../components/DataGrid";
 import Loading from "../components/Loading";
 const Map = dynamic(() => import("../components/Map"), {
   ssr: false,
+  // eslint-disable-next-line react/display-name
   loading: () => <Loading />,
 });
 

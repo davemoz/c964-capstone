@@ -65,12 +65,15 @@ const DataGrid = () => {
     setBorough(null);
   };
 
-  const findByDate = (date) => {
-    return data.filter((day) => {
-      const dateObj = new Date(Date.parse(day.date_of_interest));
-      return dateObj.getTime() === date.getTime();
-    });
-  };
+  const findByDate = useCallback(
+    (date) => {
+      return data.filter((day) => {
+        const dateObj = new Date(Date.parse(day.date_of_interest));
+        return dateObj.getTime() === date.getTime();
+      });
+    },
+    [data]
+  );
 
   useEffect(() => {
     data && setLastDataDate(new Date(data[data.length - 1].date_of_interest));
@@ -83,7 +86,7 @@ const DataGrid = () => {
     } else {
       setCurResult(null);
     }
-  }, [date]);
+  }, [date, findByDate]);
 
   // useEffect(() => {
   // 	borough ?
