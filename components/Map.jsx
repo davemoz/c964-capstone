@@ -10,9 +10,10 @@ import {
 import { GEOAPIFY_API_URL, GEOAPIFY_API_KEY } from "../utils/constants";
 import { useBoroughBoundaries } from "../utils/hooks";
 import { boroughColorsByCode } from "../utils/boroughs";
-import styles from "../styles/Map.module.css";
-import "../node_modules/leaflet/dist/leaflet.css";
 import { area } from "d3-shape";
+
+import "../node_modules/leaflet/dist/leaflet.css";
+import styles from "../styles/Map.module.scss";
 
 const mapArgs = {
   lat: 40.73061,

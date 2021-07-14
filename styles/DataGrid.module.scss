@@ -1,23 +1,25 @@
+.box_title {
+  margin: 0;
+}
+
+.box_subtitle {
+  display: block;
+  margin-bottom: 10px;
+}
+
 .user_select {
   display: flex;
 
   > * {
     background-color: rgb(241, 241, 241);
     border-radius: 20px;
-    display: flex;
-    flex-direction: column;
     padding: 20px;
   }
 
   .date_picker {
+    display: flex;
+    flex-direction: column;
     margin-right: 20px;
-
-    .today_btn {
-      cursor: pointer;
-      margin: 10px 0;
-      padding: 5px 0;
-      text-transform: uppercase;
-    }
   }
 
   .borough_picker {
@@ -28,4 +30,77 @@
       padding: 5px 0;
     }
   }
+
+  .user_select_result {
+    display: flex;
+
+    > * {
+      border-right: 1px solid #e2e2e2;
+      padding-right: 1rem;
+      padding-left: 1rem;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+    }
+
+    .curDate {
+      font-weight: normal;
+      font-size: smaller;
+    }
+
+    .results_box {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 5px;
+      display: flex;
+      padding: 20px;
+    }
+
+    .results_list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .results_item {
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  .trigger_prediction {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .future_dates_msg {
+    padding-bottom: 10px;
+  }
+
+  .trigger_btn {
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font: 600 1rem/1.4 Helvetica, sans-serif;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #60a7f8;
+    }
+  }
+}
+
+.prediction_box {
+  background-color: rgb(241, 241, 241);
+  border-radius: 20px;
+  padding: 20px;
 }

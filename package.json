@@ -5,7 +5,12 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
+		"gcp-build": "next build",
 		"start": "next start",
+		"func-fw": "functions-framework --target=process_covid_prediction --source=/Users/dmozdzanowski/repos/dmoz-c964-capstone/env/functions/",
+		"func-call": "gcloud functions call process_covid_prediction",
+		"func-deploy": "gcloud functions deploy process_covid_prediction --runtime python38 --trigger-http --allow-unauthenticated --source=/Users/dmozdzanowski/repos/dmoz-c964-capstone/env/functions/",
+		"app-deploy": "gcloud app deploy",
 		"lint": "eslint ./ --ext js,jsx,ts,tsx"
 	},
 	"dependencies": {
@@ -21,6 +26,7 @@
 		"sass": "^1.35.1"
 	},
 	"devDependencies": {
+		"@google-cloud/functions-framework": "^1.9.0",
 		"classnames": "^2.3.1",
 		"eslint": "^7.30.0",
 		"eslint-config-next": "^11.0.1",

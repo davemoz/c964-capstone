@@ -12,6 +12,17 @@
   padding: 0 2rem 2rem;
 }
 
+.source {
+  opacity: 0.3;
+  font-size: 14px;
+  padding: 0 2rem 1rem;
+  text-align: right;
+
+  .source_link:hover {
+    text-decoration: underline;
+  }
+}
+
 .footer {
   background: rgb(241, 241, 241);
   color: rgb(180, 180, 180);

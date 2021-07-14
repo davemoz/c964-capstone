@@ -9,7 +9,7 @@ const Map = dynamic(() => import("../components/Map"), {
   loading: () => <Loading />,
 });
 
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (
@@ -33,6 +33,18 @@ export default function Home() {
         />
         <DataGrid addlClassNames={styles.grid} />
       </main>
+
+      <div className={styles.source}>
+        Data source:{" "}
+        <a
+          className={styles.source_link}
+          href="https://data.cityofnewyork.us/Health/COVID-19-Daily-Counts-of-Cases-Hospitalizations-an/rc75-m7u3"
+          target="_blank"
+          rel="noreferrer"
+        >
+          https://data.cityofnewyork.us/Health/COVID-19-Daily-Counts-of-Cases-Hospitalizations-an/rc75-m7u3
+        </a>
+      </div>
 
       <footer className={styles.footer}>
         David Mozdzanowski - C964 Capstone - COVID-19 Resource Allocation Data
