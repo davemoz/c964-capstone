@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NYC_COVID_DATA_JSON, NYC_BOROUGH_BOUNDARIES_JSON } from "./constants";
-import * as d3 from "d3";
+import { json } from "d3-fetch";
 
 export const useCovidData = () => {
   const [data, setData] = useState(undefined);
@@ -10,7 +10,7 @@ export const useCovidData = () => {
       return data;
     }
 
-    setData(await d3.json(NYC_COVID_DATA_JSON));
+    setData(await json(NYC_COVID_DATA_JSON));
   };
   getData();
 
@@ -25,7 +25,7 @@ export const useBoroughBoundaries = () => {
       return boroughBoundaries;
     }
 
-    setBoroughBoundaries(await d3.json(NYC_BOROUGH_BOUNDARIES_JSON));
+    setBoroughBoundaries(await json(NYC_BOROUGH_BOUNDARIES_JSON));
   };
   getBoundaries();
 

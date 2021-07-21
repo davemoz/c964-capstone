@@ -1,5 +1,4 @@
 const boroughs = {
-  All: "all",
   Brooklyn: "bk",
   Bronx: "bx",
   Manhattan: "mn",

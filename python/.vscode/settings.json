@@ -1,0 +1,13 @@
+{
+  "[python]": {
+    "gitlens.codeLens.symbolScopes": ["!Module"],
+    "editor.wordBasedSuggestions": false
+  },
+  "python.autoComplete.extraPaths": [
+    "~/.pyenv/versions/capstone-python/bin/python3.8"
+  ],
+  "python.defaultInterpreterPath": "~/.pyenv/versions/capstone-python/bin/python3.8",
+  "python.analysis.extraPaths": [
+    "~/.pyenv/versions/capstone-python/bin/python3.8"
+  ]
+}
