@@ -1,0 +1,117 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.row_wrap {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.lt_grey_box {
+  background-color: rgb(241, 241, 241);
+  border-radius: 20px;
+  margin-right: 20px;
+  padding: 20px;
+
+  &.graph {
+    width: 100%;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .box_title {
+    margin: 0 0 10px 0;
+  }
+
+  .box_subtitle {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .curDate {
+    font-weight: normal;
+    font-size: smaller;
+  }
+}
+
+.results_box {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  display: flex;
+  padding: 20px;
+
+  .results_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .results_item {
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font: 600 1rem/1.4 Helvetica, sans-serif;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.primary_btn {
+  background-color: #4a90e2;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #3d7dc7;
+  }
+}
+
+.secondary_btn {
+  background-color: #d0d0d0;
+  color: #a2a2a2;
+
+  &:hover {
+    background-color: #cccccc;
+  }
+}

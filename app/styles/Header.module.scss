@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em 0;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  color: #0070f3;
+  text-decoration: none;
+  line-height: 1;
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+}
+
+.description {
+  line-height: 1.6;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.sub_description {
+  font-size: 0.9rem;
+}

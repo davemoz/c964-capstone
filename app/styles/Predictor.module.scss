@@ -1,0 +1,19 @@
+.trigger_prediction,
+.prediction_results_wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.future_dates_msg {
+  padding-bottom: 10px;
+}
+
+.prediction_results {
+  padding-bottom: 10px;
+}
+
+.disclaimer {
+  font-size: 12px;
+  padding-top: 7px;
+  text-align: center;
+}
