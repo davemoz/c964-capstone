@@ -31,3 +31,24 @@ export const useBoroughBoundaries = () => {
 
   return boroughs;
 };
+
+export const useFetch = async (
+  endpoint,
+  setIsLoadingFunc,
+  setResultsFunc,
+  setAlertFunc
+) => {
+  setIsLoadingFunc(true);
+  try {
+    const data = await fetch(endpoint)
+      .then((response) => response.json())
+      .then((resData) => {
+        return resData;
+      });
+    setResultsFunc(data);
+    setIsLoadingFunc(false);
+  } catch (error) {
+    setIsLoadingFunc(false);
+    setAlertFunc(`There was an error fetching the data: ${error}`);
+  }
+};

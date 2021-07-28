@@ -1,80 +1,68 @@
 import { useState, useEffect } from "react";
+import { boroughs } from "../../utils/boroughs";
 import PropTypes from "prop-types";
+import moment from "moment";
 
 import styles from "../../styles/CaseCountList.module.scss";
 
 const propTypes = {
-  /** The date selected by the user */
-  date: PropTypes.instanceOf(Date),
+  /** The date of the prediction */
+  predictDate: PropTypes.object,
 
-  /** The last available date in the data */
-  lastDataDate: PropTypes.instanceOf(Date),
-
-  /** The data for the given date */
-  data: PropTypes.object,
+  /** The prediction data */
+  predictionResults: PropTypes.object,
 };
 
-const CaseCountList = ({ date, lastDataDate, data }) => {
-  const [all, setAll] = useState(null);
-  const [mn, setMn] = useState(null);
-  const [qn, setQn] = useState(null);
-  const [bk, setBk] = useState(null);
-  const [bx, setBx] = useState(null);
-  const [si, setSi] = useState(null);
+const CaseCountList = ({ predictDate, predictionResults }) => {
+  const [highestCount, setHighestCount] = useState(0);
 
   useEffect(() => {
-    if (data) {
-      Object.keys(data).map((key) => {
-        if (key === "case_count") {
-          setAll(data[key]);
-        } else if (key === "mn_case_count") {
-          setMn(data[key]);
-        } else if (key === "qn_case_count") {
-          setQn(data[key]);
-        } else if (key === "bk_case_count") {
-          setBk(data[key]);
-        } else if (key === "bx_case_count") {
-          setBx(data[key]);
-        } else if (key === "si_case_count") {
-          setSi(data[key]);
-        }
-      });
-    }
-  }, [data]);
+    predictionResults &&
+      setHighestCount(
+        Math.max.apply(
+          Math,
+          Object.keys(predictionResults).map((key) => {
+            return Math.round(predictionResults[key].prediction);
+          })
+        )
+      );
+  }, [predictionResults]);
 
   return (
-    <div className="lt_grey_box">
+    <>
       <header>
         <h2 className="box_title">
-          Case count:{" "}
+          Predicted case counts:{" "}
           <span className="curDate">
-            {date &&
-              date.toLocaleString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+            {predictDate && predictDate.format("MMMM D, YYYY")}
           </span>
         </h2>
+        <p className="box_sub">Highest predicted count is bold.</p>
       </header>
-      {data !== null ? (
+      {predictionResults && (
         <div className="results_box">
-          {data && (
-            <ul className="results_list">
-              <li className="results_item">Brooklyn: {bk}</li>
-              <li className="results_item">Bronx: {bx}</li>
-              <li className="results_item">Manhattan: {mn}</li>
-              <li className="results_item">Queens: {qn}</li>
-              <li className="results_item">Staten Island: {si}</li>
-              <li className="results_item bold">Total: {all}</li>
-            </ul>
-          )}
+          <ul className="results_list">
+            {Object.keys(boroughs).map((borough) => {
+              const name = borough;
+              const key = boroughs[borough];
+              return (
+                <li
+                  key={key}
+                  className={`results_item ${
+                    Math.round(predictionResults[key].prediction) ===
+                    highestCount
+                      ? "highest"
+                      : ""
+                  }`}
+                >
+                  {name}: {Math.round(predictionResults[key].prediction)}
+                </li>
+              );
+            })}
+          </ul>
         </div>
-      ) : (
-        <div className="results_box">No date selected.</div>
       )}
-    </div>
+    </>
   );
 };
 

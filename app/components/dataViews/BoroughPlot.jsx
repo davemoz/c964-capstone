@@ -5,75 +5,107 @@ import { boroughs, boroughColorsByCode } from "../../utils/boroughs";
 // import styles from "../../styles/BoroughPlot.module.scss";
 
 const propTypes = {
-  /** The data */
-  data: PropTypes.array,
+  /** The array of dates for the training data */
+  trainDates: PropTypes.array,
+
+  /** The array of dates for the test/predictions data */
+  testDates: PropTypes.array,
+
+  /** The date of the single prediction */
+  predictDate: PropTypes.array,
+
+  /** The read-friendly borough name */
+  name: PropTypes.string,
+
+  /** The training data set */
+  trainingData: PropTypes.array,
+
+  /** The predictions data set */
+  predictionsData: PropTypes.array,
+
+  /** The validation data set */
+  validationData: PropTypes.array,
+
+  /** The predicted single num */
+  predictionPoint: PropTypes.array,
 };
 
-const BoroughPlot = ({ data }) => {
-  const [dates, setDates] = useState([]);
-  const [trainingData, setTrainingData] = useState([]);
-
-  useEffect(() => {
-    data &&
-      data.map((obj) => {
-        Object.keys(obj).map((key) => {
-          if (key === "date_of_interest") {
-            setDates((prevState) => [...prevState, obj[key]]);
-          } else if (key === "mn_case_count") {
-            setMn((prevState) => [...prevState, obj[key]]);
-          }
-        });
-      });
-  }, [data]);
-
-  useEffect(() => {
-    const allBoroughsData = {
-      Bronx: bx,
-      Brooklyn: bk,
-      Manhattan: mn,
-      Queens: qn,
-      "Staten Island": si,
-    };
-    let boroughsDataArray = [];
-    data &&
-      Object.keys(allBoroughsData).map((borough, i) => {
-        const boroughVal = allBoroughsData[borough];
-        boroughsDataArray[i] = {
-          x: dates ? dates : [],
-          y: boroughVal ? boroughVal : [],
-          type: "scatter",
-          line: {
-            width: 1,
-            color: boroughColorsByCode.get(i + 1),
-          },
-          mode: "lines",
-          name: borough,
-        };
-      });
-    setBoroughsData(boroughsDataArray);
-  }, [data, dates]);
-
+const BoroughPlot = ({
+  trainDates,
+  testDates,
+  predictDate,
+  name,
+  trainingData,
+  predictionsData,
+  validationData,
+  predictionPoint,
+}) => {
   return (
-    data && (
-      <div className="plot_box">
-        {data && (
-          <Plot
-            data={boroughsData}
-            layout={{
-              // width: 1200,
-              // height: 400,
-              title: "Covid-19 Case Counts by Borough",
-              autosize: true,
-            }}
-            useResizeHandler={true}
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        )}
-      </div>
-    )
+    <div className="plot_box">
+      <Plot
+        data={[
+          {
+            x: trainDates ? trainDates : [],
+            y: trainingData ? trainingData : [],
+            type: "scatter",
+            line: {
+              width: 3,
+              color: "#4a90e2",
+            },
+            mode: "lines",
+            name: "Training",
+          },
+          {
+            x: testDates ? testDates : [],
+            y: validationData ? validationData : [],
+            type: "scatter",
+            line: {
+              width: 3,
+              color: "orangered",
+            },
+            mode: "lines",
+            name: "Validation",
+          },
+          {
+            x: testDates ? testDates : [],
+            y: predictionsData ? predictionsData : [],
+            type: "scatter",
+            line: {
+              width: 3,
+              color: "gold",
+            },
+            mode: "lines",
+            name: "Predicted",
+          },
+          {
+            x: predictDate ? predictDate : "",
+            y: predictionPoint
+              ? predictionPoint.map((num) => Math.round(num))
+              : [],
+            type: "scatter",
+            marker: {
+              color: "green",
+              size: 10,
+            },
+            mode: "markers",
+            name: "Prediction",
+            text: "Predicted case number",
+            textposition: "top left",
+          },
+        ]}
+        layout={{
+          // width: 1200,
+          // height: 400,
+          title: `Covid-19 Case Count Prediction - <b>${name}</b>`,
+          autosize: true,
+        }}
+        useResizeHandler={true}
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
+      />
+    </div>
   );
 };
 

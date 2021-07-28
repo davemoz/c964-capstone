@@ -3,12 +3,9 @@ import PropTypes from "prop-types";
 
 import Spinner from "./Spinner";
 
-import styles from "../styles/Predictor.module.scss";
+import styles from "../styles/PredictButton.module.scss";
 
 const propTypes = {
-  /** The user-selected date */
-  currentDate: PropTypes.object,
-
   /** The prediction function */
   triggerFunc: PropTypes.func,
 
@@ -22,33 +19,20 @@ const propTypes = {
   predictionResults: PropTypes.object,
 };
 
-const Predictor = ({
-  currentDate,
+const PredictButton = ({
   triggerFunc,
   resetFunc,
   predictionLoading,
   predictionResults,
 }) => {
-  const formattedDate = currentDate
-    ? new Date(currentDate).toLocaleString("en-US", {
-        // weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    : null;
-
   return !predictionResults ? (
     <div className={styles.trigger_prediction}>
       <button
         className="btn primary_btn"
-        onClick={() => triggerFunc(currentDate)}
+        onClick={() => triggerFunc()}
+        disabled={predictionLoading ? true : false}
       >
-        {predictionLoading ? (
-          <Spinner />
-        ) : (
-          `Generate prediction${formattedDate ? " for " + formattedDate : ""}`
-        )}
+        {predictionLoading ? <Spinner /> : "Generate prediction"}
       </button>
       <p className={styles.disclaimer}>(may take up to 2 minutes)</p>
     </div>
@@ -61,4 +45,4 @@ const Predictor = ({
   );
 };
 
-export default Predictor;
+export default PredictButton;

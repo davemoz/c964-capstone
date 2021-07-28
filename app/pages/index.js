@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header";
-import DataGrid from "../components/DataGrid";
+import Body from "../components/Body";
 
 import styles from "../styles/Home.module.scss";
 
@@ -21,7 +21,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <Header title="Dave Mozdzanowski - C964 Capstone - COVID-19 Resource Allocation Data Product" />
-        <DataGrid addlClassNames={styles.grid} />
+        <Body addlClassNames={styles.grid} />
       </main>
 
       <div className={styles.source}>
