@@ -9,8 +9,8 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>
-          Dave Mozdzanowski - C964 Capstone - COVID-19 Resource Allocation Data
-          Product
+          Dave Mozdzanowski - C964 Capstone - NYC COVID-19 Resource Allocation
+          Data Product
         </title>
         <meta
           name="description"
@@ -20,7 +20,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Header title="Dave Mozdzanowski - C964 Capstone - COVID-19 Resource Allocation Data Product" />
+        <Header title="Dave Mozdzanowski - C964 Capstone - NYC COVID-19 Resource Allocation Data Product" />
         <Body addlClassNames={styles.grid} />
       </main>
 
@@ -37,8 +37,8 @@ export default function Home() {
       </div>
 
       <footer className={styles.footer}>
-        David Mozdzanowski - C964 Capstone - COVID-19 Resource Allocation Data
-        Product
+        David Mozdzanowski - C964 Capstone - NYC COVID-19 Resource Allocation
+        Data Product
       </footer>
     </div>
   );
