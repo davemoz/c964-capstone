@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NYC_COVID_DATA_JSON, NYC_BOROUGH_BOUNDARIES_JSON } from "./constants";
 import { json } from "d3-fetch";
 
@@ -36,8 +36,13 @@ export const useFetch = async (
   endpoint,
   setIsLoadingFunc,
   setResultsFunc,
-  setAlertFunc
+  setAlertFunc,
+  results
 ) => {
+  if (results) {
+    setIsLoadingFunc(false);
+    return results;
+  }
   setIsLoadingFunc(true);
   try {
     const data = await fetch(endpoint)

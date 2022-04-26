@@ -1,12 +1,8 @@
-import PropTypes, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useCovidData } from "../utils/hooks";
-import { boroughs } from "../utils/boroughs";
 import moment from "moment";
-import Loading from "./Loading";
 import StickySidebar from "./StickySidebar";
 import PredictionResults from "./dataViews/PredictionResults";
-
-import styles from "../styles/Body.module.scss";
 
 const Body = () => {
   const data = useCovidData();

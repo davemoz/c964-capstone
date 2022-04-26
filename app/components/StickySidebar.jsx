@@ -20,10 +20,6 @@ const StickySidebar = ({
   const [alertText, setAlertText] = useState(null);
 
   const _handleTrigger = () => {
-    if (predictionResults) {
-      setIsLoadingFunc(false);
-      return predictionResults;
-    }
     return useFetch(
       GCLOUD_PROCESS_COVID_FUNCTION_ENDPOINT,
       setPredictionLoadingFunc,
