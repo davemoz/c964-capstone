@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useCovidData } from "../utils/hooks";
 import moment from "moment";
 import StickySidebar from "./StickySidebar";
 import PredictionResults from "./dataViews/PredictionResults";
 
 const Body = () => {
-  const data = useCovidData();
+  const json = useCovidData();
 
   const [dates, setDates] = useState(null);
   const [lastDataDate, setLastDataDate] = useState(null);
@@ -16,12 +16,12 @@ const Body = () => {
 
   useEffect(() => {
     let datesArray = [];
-    data &&
-      data.map((day) => {
+    json &&
+      json.map((day) => {
         datesArray.push(day["date_of_interest"]);
       });
     setDates(datesArray);
-  }, [data]);
+  }, [json]);
 
   useEffect(() => {
     if (dates !== null) {
@@ -33,7 +33,6 @@ const Body = () => {
   return (
     <>
       <StickySidebar
-        data={data}
         lastDataDate={lastDataDate}
         predictDate={predictDate}
         predictionLoading={isPredictionLoading}
@@ -52,7 +51,7 @@ const Body = () => {
                 dataObj={boroughObj}
                 dates={dates}
                 predictDate={
-                  new Array(
+                  predictDate && Array.of(
                     predictDate.startOf("day").format("YYYY-MM-DDTHH:mm:ss.SSS")
                   )
                 }

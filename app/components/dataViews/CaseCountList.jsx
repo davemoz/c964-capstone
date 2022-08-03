@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { boroughs } from "../../utils/boroughs";
 import PropTypes from "prop-types";
-import moment from "moment";
 
 import styles from "../../styles/CaseCountList.module.scss";
 
@@ -31,29 +30,28 @@ const CaseCountList = ({ predictDate, predictionResults }) => {
   return (
     <>
       <header>
-        <h2 className="box_title">
+        <h2 className={styles.box_title}>
           Predicted case counts:{" "}
-          <span className="curDate">
+          <span className={styles.curDate}>
             {predictDate && predictDate.format("MMMM D, YYYY")}
           </span>
         </h2>
-        <p className="box_sub">Highest predicted count is bold.</p>
+        <p className={styles.box_sub}>Highest predicted count is bold.</p>
       </header>
       {predictionResults && (
-        <div className="results_box">
-          <ul className="results_list">
+        <div className={styles.results_box}>
+          <ul className={styles.results_list}>
             {Object.keys(boroughs).map((borough) => {
               const name = borough;
               const key = boroughs[borough];
               return (
                 <li
                   key={key}
-                  className={`results_item ${
-                    Math.round(predictionResults[key].prediction) ===
+                  className={`${styles.results_item} ${Math.round(predictionResults[key].prediction) ===
                     highestCount
-                      ? "highest"
-                      : ""
-                  }`}
+                    ? "highest"
+                    : ""
+                    }`}
                 >
                   {name}: {Math.round(predictionResults[key].prediction)}
                 </li>

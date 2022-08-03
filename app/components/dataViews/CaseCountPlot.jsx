@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Plot from "react-plotly.js";
-import { boroughs, boroughColorsByCode } from "../../utils/boroughs";
+import { boroughColorsByCode } from "../../utils/boroughs";
+
 // import styles from "../../styles/CaseCountPlot.module.scss";
 
 const propTypes = {

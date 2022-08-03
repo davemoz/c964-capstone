@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Plot from "react-plotly.js";
-import { boroughs, boroughColorsByCode } from "../../utils/boroughs";
+
 // import styles from "../../styles/BoroughPlot.module.scss";
 
 const propTypes = {

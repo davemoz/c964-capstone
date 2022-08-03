@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from "prop-types";
 
 import Spinner from "./Spinner";
@@ -5,8 +6,8 @@ import Spinner from "./Spinner";
 import styles from "../styles/PredictButton.module.scss";
 
 const propTypes = {
-  /** The prediction function */
-  triggerFunc: PropTypes.func,
+  /** Function for submitting a request to the prediction server */
+  submitFunc: PropTypes.func,
 
   /** The reset function */
   resetFunc: PropTypes.func,
@@ -19,27 +20,27 @@ const propTypes = {
 };
 
 const PredictButton = ({
-  triggerFunc,
+  submitFunc,
   resetFunc,
   predictionLoading,
   predictionResults,
 }) => {
-  return !predictionResults ? (
-    <div className={styles.trigger_prediction}>
-      <button
-        className="btn primary_btn"
-        onClick={() => triggerFunc()}
-        disabled={predictionLoading ? true : false}
-      >
-        {predictionLoading ? <Spinner /> : "Generate prediction"}
+  return predictionResults ? (
+    <div className={styles.prediction_results_wrap}>
+      <button className={`${styles.btn} ${styles.secondary_btn}`} onClick={() => resetFunc()}>
+        {predictionLoading ? <Spinner /> : 'Reset'}
       </button>
-      <p className={styles.disclaimer}>(may take up to 2 minutes)</p>
     </div>
   ) : (
-    <div className={styles.prediction_results_wrap}>
-      <button className="btn secondary_btn" onClick={() => resetFunc()}>
-        {predictionLoading ? <Spinner /> : `Reset`}
+    <div className={styles.trigger_prediction}>
+      <button
+        className={`${styles.btn} ${styles.primary_btn}`}
+        onClick={() => submitFunc()}
+        disabled={predictionLoading ? true : false}
+      >
+        {predictionLoading ? <Spinner /> : 'Generate prediction'}
       </button>
+      <p className={styles.disclaimer}>(may take up to 2 minutes)</p>
     </div>
   );
 };

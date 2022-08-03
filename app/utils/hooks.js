@@ -29,11 +29,12 @@ export const useBoroughBoundaries = () => {
   };
   getBoundaries();
 
-  return boroughs;
+  return boroughBoundaries;
 };
 
 export const useFetch = async (
   endpoint,
+	boroughKey,
   setIsLoadingFunc,
   setResultsFunc,
   setAlertFunc,
@@ -44,8 +45,18 @@ export const useFetch = async (
     return results;
   }
   setIsLoadingFunc(true);
+	if (boroughKey === 'default') {
+		setIsLoadingFunc(false);
+		setAlertFunc('Please choose a borough before submitting.');
+		return;
+	}
+	const args = {
+		body: {
+			borough: boroughKey
+		}
+	};
   try {
-    const data = await fetch(endpoint)
+    const data = await fetch(endpoint, args)
       .then((response) => response.json())
       .then((resData) => {
         return resData;

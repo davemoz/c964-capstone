@@ -1,5 +1,46 @@
+.sticky_wrap {
+  position: sticky;
+  top: 30px;
+  width: 318px;
+  z-index: 99;
+}
+
+.absolute_wrap {
+  position: absolute;
+  overflow-y: scroll;
+  padding-bottom: 90px;
+
+  .lt_grey_box {
+    margin-bottom: 20px;
+  }
+}
+
+.lt_grey_box {
+  background-color: rgb(241, 241, 241);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.box_title {
+  margin: 0 0 10px;
+}
+
+.box_sub {
+  color: #848484;
+  font: normal 14px/1.6 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 10px 0;
+}
+
 .alert_text {
   color: orangered;
   margin-bottom: 10px;
   width: 270px;
+}
+
+.borough_select {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
 }

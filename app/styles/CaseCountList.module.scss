@@ -1,0 +1,36 @@
+.box_title {
+  margin: 0 0 10px;
+}
+
+.curDate {
+  font-weight: normal;
+  font-size: smaller;
+}
+
+.box_sub {
+  color: #848484;
+  font: normal 14px/1.6 -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 10px 0;
+}
+
+.results_box {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  display: flex;
+  padding: 20px;
+
+  .results_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .results_item {
+      padding-bottom: 5px;
+
+      &.highest {
+        font-weight: bold;
+      }
+    }
+  }
+}

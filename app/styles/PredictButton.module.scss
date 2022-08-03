@@ -17,3 +17,44 @@
   padding: 7px 0;
   text-align: center;
 }
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font: 600 1rem/1.4 Helvetica, sans-serif;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.primary_btn {
+  background-color: #4a90e2;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #3d7dc7;
+  }
+
+  &:disabled {
+    background-color: #d0d0d0;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.secondary_btn {
+  background-color: transparent;
+  border: 2px solid #d0d0d0;
+  color: #a2a2a2;
+
+  &:hover {
+    background-color: #e4e4e4;
+  }
+}

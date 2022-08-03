@@ -5,7 +5,6 @@ import Loading from "../Loading";
 import dynamic from "next/dynamic";
 const BoroughPlot = dynamic(() => import("./BoroughPlot"), {
   ssr: false,
-  // eslint-disable-next-line react/display-name
   loading: () => <Loading />,
 });
 
@@ -39,8 +38,8 @@ const PredictionResults = ({ boroughKey, dataObj, dates, predictDate }) => {
   );
 
   return (
-    <div className="row_wrap">
-      <div className="lt_grey_box graph">
+    <div className={styles.row_wrap}>
+      <div className={`${styles.lt_grey_box} ${styles.graph}`}>
         <div className={styles.results_graph}>
           <BoroughPlot
             trainDates={trainDates}

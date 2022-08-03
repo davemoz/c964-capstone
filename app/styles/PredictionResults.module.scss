@@ -1,0 +1,16 @@
+.row_wrap {
+  display: grid;
+  grid-template-columns: 318px 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.lt_grey_box {
+  background-color: rgb(241, 241, 241);
+  border-radius: 20px;
+  padding: 20px;
+
+  &.graph {
+    grid-column: 2 / -1;
+  }
+}
