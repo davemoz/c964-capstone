@@ -4,7 +4,7 @@ import predict
 from python.exceptions import InvalidArg
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 
 @app.route("/")
