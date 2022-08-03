@@ -21,16 +21,16 @@ const LoadingResults = () => {
   }, []);
 
   useEffect(() => {
-    const id = setTimeout(() => messageRef.current && messageRef.current.classList.add('cycle'), 3500);
+    const id = setTimeout(() => messageRef.current && messageRef.current.classList.add(styles.cycle), 3500);
 
     return () => clearTimeout(id);
   }, [startCycle]);
 
   return (
     <div className={styles.row_wrap}>
-      {messages.map((message, idx) => {
+      {messages.map(message => {
         return (
-          <div className={styles.message} id={`message-${idx}`} key={message} ref={messageRef}>
+          <div className={styles.message} key={message} ref={messageRef}>
             {message}
           </div>
         )
