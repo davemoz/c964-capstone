@@ -18,9 +18,9 @@ def process_covid_prediction(args):
                   parse_dates=['date_of_interest'])
 
     # Get all data
-    all_case_count = df.filter(['case_count'])
+    # all_case_count = df.filter(['case_count'])
 
-    # Separate the data into boroughs
+    # Separate column names into borough variables
     bx_names = ['bx_case_count']
     bk_names = ['bk_case_count']
     mn_names = ['mn_case_count']
@@ -29,10 +29,13 @@ def process_covid_prediction(args):
     boroughs = {'bx': bx_names, 'bk': bk_names,
                 'mn': mn_names, 'qn': qn_names, 'si': si_names}
 
+    boroughArg = args.borough
+
     all_borough_data = {}
     # Create model, train, and predict for each borough
-    # def do_predictions(borough):
-    for borough in boroughs:
+
+    def do_predictions(borough):
+        # for borough in boroughs:
         data = df.filter(boroughs[borough])
 
         # Create a training sub-dataset
@@ -137,4 +140,6 @@ def process_covid_prediction(args):
     # parallelData = Parallel(n_jobs=num_cores)(
     #     delayed(do_predictions)(borough) for borough in boroughs)
 
-    return all_borough_data
+        return all_borough_data
+
+    return do_predictions(boroughArg)
