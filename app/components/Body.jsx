@@ -3,6 +3,7 @@ import { useCovidData } from "../utils/hooks";
 import moment from "moment";
 import StickySidebar from "./StickySidebar";
 import PredictionResults from "./dataViews/PredictionResults";
+import LoadingResults from "./LoadingResults";
 
 const Body = () => {
   const json = useCovidData();
@@ -40,26 +41,28 @@ const Body = () => {
         predictionResults={predictionResults}
         setPredictionResultsFunc={setPredictionResults}
       />
-      {predictionResults && (
-        <>
-          {Object.keys(predictionResults).map((borough) => {
-            const boroughObj = predictionResults[borough];
-            return (
-              <PredictionResults
-                key={borough}
-                boroughKey={borough}
-                dataObj={boroughObj}
-                dates={dates}
-                predictDate={
-                  predictDate && Array.of(
-                    predictDate.startOf("day").format("YYYY-MM-DDTHH:mm:ss.SSS")
-                  )
-                }
-              />
-            );
-          })}
-        </>
-      )}
+      {isPredictionLoading
+        ? (<LoadingResults />)
+        : (predictionResults && (
+          <>
+            {Object.keys(predictionResults).map((borough) => {
+              const boroughObj = predictionResults[borough];
+              return (
+                <PredictionResults
+                  key={borough}
+                  boroughKey={borough}
+                  dataObj={boroughObj}
+                  dates={dates}
+                  predictDate={
+                    predictDate && Array.of(
+                      predictDate.startOf("day").format("YYYY-MM-DDTHH:mm:ss.SSS")
+                    )
+                  }
+                />
+              );
+            })}
+          </>
+        ))}
     </>
   );
 };

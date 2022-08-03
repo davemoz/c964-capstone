@@ -1,0 +1,37 @@
+.row_wrap {
+  align-items: center;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 318px 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.message {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 1s ease-in-out;
+
+  &.cycle {
+    animation: 8s cycleMessage;
+  }
+}
+
+@keyframes cycleMessage {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}

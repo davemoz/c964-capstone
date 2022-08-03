@@ -44,16 +44,17 @@ const CaseCountList = ({ predictDate, predictionResults }) => {
             {Object.keys(boroughs).map((borough) => {
               const name = borough;
               const key = boroughs[borough];
+              const num = predictionResults ? Math.round(predictionResults[key].prediction) : null;
               return (
                 <li
                   key={key}
-                  className={`${styles.results_item} ${Math.round(predictionResults[key].prediction) ===
+                  className={`${styles.results_item} ${num} ===
                     highestCount
                     ? "highest"
                     : ""
                     }`}
                 >
-                  {name}: {Math.round(predictionResults[key].prediction)}
+                  {name}: {num}
                 </li>
               );
             })}
