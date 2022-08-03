@@ -1,5 +1,4 @@
-def process_covid_prediction(args):
-    import datetime
+def process_covid_prediction(boroughKey):
     import math
     # import multiprocessing
     # from joblib import Parallel, delayed
@@ -28,8 +27,6 @@ def process_covid_prediction(args):
     si_names = ['si_case_count']
     boroughs = {'bx': bx_names, 'bk': bk_names,
                 'mn': mn_names, 'qn': qn_names, 'si': si_names}
-
-    boroughArg = args.borough
 
     all_borough_data = {}
     # Create model, train, and predict for each borough
@@ -142,4 +139,4 @@ def process_covid_prediction(args):
 
         return all_borough_data
 
-    return do_predictions(boroughArg)
+    return do_predictions(boroughKey)

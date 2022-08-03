@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Body from "../components/Body";
@@ -20,7 +21,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Header title="Dave Mozdzanowski - C964 Capstone - NYC COVID-19 Resource Allocation Data Product" />
+        <Header
+          title="NYC COVID-19 Resource Allocation Data Product"
+          subtitle="by Dave Mozdzanowski, for BSCS C964 capstone"
+        />
         <Body addlClassNames={styles.grid} />
       </main>
 

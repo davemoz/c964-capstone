@@ -9,8 +9,8 @@ const GEOAPIFY_API_URL =
 
 const GEOAPIFY_API_KEY = "75d1e67dfac740bbb520fc3e83d32145";
 
-const GCLOUD_PROCESS_COVID_FUNCTION_ENDPOINT = 
-  // "http://10.0.0.35:8080";
+const GCLOUD_PROCESS_COVID_FUNCTION_ENDPOINT =
+  // "http://localhost:8080";
   "https://predict-74fywbojmq-uk.a.run.app";
 
 export {
