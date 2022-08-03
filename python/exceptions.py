@@ -1,7 +1,5 @@
-from flask import jsonify
-
-
 class InvalidArg(Exception):
+    '''Custom exception class for handling missing parameters'''
     status_code = 400
 
     def __init__(self, message, status_code=None, payload=None):

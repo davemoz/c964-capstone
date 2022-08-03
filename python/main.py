@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from exceptions import InvalidArg
 import predict
-from python.exceptions import InvalidArg
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, origins=[
