@@ -4,7 +4,8 @@ import predict
 from python.exceptions import InvalidArg
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True)
+CORS(app, supports_credentials=True, origins=[
+     "https://c964-capstone.vercel.app"])
 
 
 @app.route("/")
