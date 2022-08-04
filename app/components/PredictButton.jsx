@@ -25,7 +25,7 @@ const PredictButton = ({
   predictionLoading,
   predictionResults,
 }) => {
-  return predictionResults ? (
+  return predictionResults.length > 0 ? (
     <div className={styles.prediction_results_wrap}>
       <button className={`${styles.btn} ${styles.secondary_btn}`} onClick={() => resetFunc()}>
         {predictionLoading ? <Spinner /> : 'Reset'}

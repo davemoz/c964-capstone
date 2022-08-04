@@ -8,8 +8,8 @@ const propTypes = {
   /** The date of the prediction */
   predictDate: PropTypes.object,
 
-  /** The prediction data */
-  predictionResults: PropTypes.object,
+  /** Array of borough prediction data objects */
+  predictionResults: PropTypes.array,
 };
 
 const CaseCountList = ({ predictDate, predictionResults }) => {
@@ -41,18 +41,14 @@ const CaseCountList = ({ predictDate, predictionResults }) => {
       {predictionResults && (
         <div className={styles.results_box}>
           <ul className={styles.results_list}>
-            {Object.keys(boroughs).map((borough) => {
-              const name = borough;
-              const key = boroughs[borough];
+            {predictionResults.map(boroughResult => {
+              const key = Object.keys(boroughResult)[0];
+              const name = Object.keys(boroughs).find(boroughName => boroughs[boroughName] === key);
               const num = predictionResults ? Math.round(predictionResults[key].prediction) : null;
               return (
                 <li
                   key={key}
-                  className={`${styles.results_item} ${num} ===
-                    highestCount
-                    ? "highest"
-                    : ""
-                    }`}
+                  className={`${styles.results_item} ${num === highestCount ? "highest" : ""}`}
                 >
                   {name}: {num}
                 </li>

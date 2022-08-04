@@ -40,16 +40,22 @@ export const useFetch = async (
   setAlertFunc,
   results
 ) => {
-  if (results) {
+  setIsLoadingFunc(true);
+
+  // Check if we already retrieved the borough data
+  if (results && Object.keys(results).includes(boroughKey)) {
     setIsLoadingFunc(false);
     return results;
   }
-  setIsLoadingFunc(true);
+
+  // Check that borough is selected for new fetch
   if (boroughKey === "default") {
     setIsLoadingFunc(false);
     setAlertFunc("Please choose a borough before submitting.");
     return;
   }
+
+  // Fetch borough data
   const url = new URL(endpoint);
   url.searchParams.append("borough", boroughKey);
   try {
@@ -58,10 +64,10 @@ export const useFetch = async (
       .then((resData) => {
         return resData;
       });
-    setResultsFunc(data);
+    setResultsFunc((prevValue) => prevValue.append(data));
     setIsLoadingFunc(false);
   } catch (error) {
     setIsLoadingFunc(false);
-    setAlertFunc(`There was an error fetching the data: ${error}`);
+    setAlertFunc(`There was a client error fetching the data: ${error}`);
   }
 };

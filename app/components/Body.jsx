@@ -11,9 +11,8 @@ const Body = () => {
   const [dates, setDates] = useState(null);
   const [lastDataDate, setLastDataDate] = useState(null);
   const [predictDate, setPredictDate] = useState(null);
-  const [curResult, setCurResult] = useState(null);
   const [isPredictionLoading, setIsPredictionLoading] = useState(false);
-  const [predictionResults, setPredictionResults] = useState(null);
+  const [predictionResults, setPredictionResults] = useState([]);
 
   useEffect(() => {
     let datesArray = [];
@@ -43,14 +42,14 @@ const Body = () => {
       />
       {isPredictionLoading
         ? (<LoadingResults />)
-        : (predictionResults && (
+        : (predictionResults.length > 0 && (
           <>
-            {Object.keys(predictionResults).map((borough) => {
-              const boroughObj = predictionResults[borough];
+            {predictionResults.map((boroughObj) => {
+              const key = Object.keys(boroughObj)[0];
               return (
                 <PredictionResults
-                  key={borough}
-                  boroughKey={borough}
+                  key={key}
+                  boroughKey={key}
                   dataObj={boroughObj}
                   dates={dates}
                   predictDate={
