@@ -64,7 +64,13 @@ export const useFetch = async (
       .then((resData) => {
         return resData;
       });
-    setResultsFunc((prevValue) => prevValue.append(data));
+    setResultsFunc((prevValue) =>
+      prevValue.map((obj, idx) =>
+        Object.keys(obj)[0] === Object.keys(data)[0]
+          ? (prevValue[idx] = data)
+          : prevValue.append(data)
+      )
+    );
     setIsLoadingFunc(false);
   } catch (error) {
     setIsLoadingFunc(false);

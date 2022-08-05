@@ -27,7 +27,7 @@ const StickySidebar = ({
     //   setAlertText
     // );
 
-    return setPredictionResultsFunc({
+    return setPredictionResultsFunc([{
       "bx": {
         "actual": [
           117,
@@ -1098,7 +1098,7 @@ const StickySidebar = ({
           176
         ]
       }
-    });
+    }]);
   };
 
   const _handleReset = () => {
