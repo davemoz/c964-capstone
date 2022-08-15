@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
 import { boroughs } from "../../utils/boroughs";
 import Loading from "../Loading";
 import dynamic from "next/dynamic";
@@ -27,11 +27,12 @@ const propTypes = {
 const PredictionResults = ({ boroughKey, dataObj, dates, predictDate }) => {
   const [trainDates, setTrainDates] = useState([]);
   const [testDates, setTestDates] = useState([]);
+  const boroughObj = dataObj && dataObj[boroughKey];
 
   useEffect(() => {
-    setTrainDates(dates.slice(0, dataObj.training.length));
-    setTestDates(dates.slice(dataObj.training.length, dates.length));
-  }, [dataObj, dates]);
+    setTrainDates(dates.slice(0, boroughObj.training.length));
+    setTestDates(dates.slice(boroughObj.training.length, dates.length));
+  }, [boroughObj, dates]);
 
   const name = Object.keys(boroughs).find(
     (key) => boroughs[key] === boroughKey
@@ -46,10 +47,10 @@ const PredictionResults = ({ boroughKey, dataObj, dates, predictDate }) => {
             testDates={testDates}
             predictDate={predictDate}
             name={name}
-            trainingData={dataObj.training}
-            predictionsData={dataObj.predictions}
-            validationData={dataObj.actual}
-            predictionPoint={dataObj.prediction}
+            trainingData={boroughObj.training}
+            predictionsData={boroughObj.predictions}
+            validationData={boroughObj.actual}
+            predictionPoint={boroughObj.prediction}
           />
         </div>
       </div>

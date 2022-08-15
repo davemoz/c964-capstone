@@ -31,12 +31,10 @@ const CaseCountList = ({ predictDate, predictionResults }) => {
     <>
       <header>
         <h2 className={styles.box_title}>
-          Predicted case counts:{" "}
-          <span className={styles.curDate}>
-            {predictDate && predictDate.format("MMMM D, YYYY")}
-          </span>
+          {predictDate && predictDate.format("MMMM D, YYYY")}
+          <span className={styles.weight_normal}> predicted case count{predictionResults.length > 1 && "s"}</span>
         </h2>
-        <p className={styles.box_sub}>Highest predicted count is bold.</p>
+        {predictionResults.length > 1 && <p className={styles.box_sub}>Highest predicted count is bold.</p>}
       </header>
       {predictionResults && (
         <div className={styles.results_box}>
@@ -44,7 +42,7 @@ const CaseCountList = ({ predictDate, predictionResults }) => {
             {predictionResults.map(boroughResult => {
               const key = Object.keys(boroughResult)[0];
               const name = Object.keys(boroughs).find(boroughName => boroughs[boroughName] === key);
-              const num = predictionResults ? Math.round(predictionResults[key].prediction) : null;
+              const num = boroughResult ? Math.round(boroughResult[key].prediction) : null;
               return (
                 <li
                   key={key}

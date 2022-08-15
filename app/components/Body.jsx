@@ -3,7 +3,6 @@ import { useCovidData } from "../utils/hooks";
 import moment from "moment";
 import StickySidebar from "./StickySidebar";
 import PredictionResults from "./dataViews/PredictionResults";
-import LoadingResults from "./LoadingResults";
 
 const Body = () => {
   const json = useCovidData();
@@ -24,7 +23,7 @@ const Body = () => {
   }, [json]);
 
   useEffect(() => {
-    if (dates !== null) {
+    if (!!dates) {
       setLastDataDate(moment(dates[dates.length - 1]));
       setPredictDate(moment(dates[dates.length - 1]).add(1, "days"));
     }
@@ -40,28 +39,26 @@ const Body = () => {
         predictionResults={predictionResults}
         setPredictionResultsFunc={setPredictionResults}
       />
-      {isPredictionLoading
-        ? (<LoadingResults />)
-        : (predictionResults.length > 0 && (
-          <>
-            {predictionResults.map((boroughObj) => {
-              const key = Object.keys(boroughObj)[0];
-              return (
-                <PredictionResults
-                  key={key}
-                  boroughKey={key}
-                  dataObj={boroughObj}
-                  dates={dates}
-                  predictDate={
-                    predictDate && Array.of(
-                      predictDate.startOf("day").format("YYYY-MM-DDTHH:mm:ss.SSS")
-                    )
-                  }
-                />
-              );
-            })}
-          </>
-        ))}
+      {predictionResults.length > 0 && (
+        <>
+          {predictionResults.map((boroughObj) => {
+            const key = Object.keys(boroughObj)[0];
+            return (
+              <PredictionResults
+                key={key}
+                boroughKey={key}
+                dataObj={boroughObj}
+                dates={dates}
+                predictDate={
+                  predictDate && Array.of(
+                    predictDate.startOf("day").format("YYYY-MM-DDTHH:mm:ss.SSS")
+                  )
+                }
+              />
+            );
+          })}
+        </>
+      )}
     </>
   );
 };
