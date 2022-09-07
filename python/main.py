@@ -5,7 +5,7 @@ import predict
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, origins=[
-     "https://c964-capstone.vercel.app"])
+     "https://c964-capstone.vercel.app", "http://localhost:3001"])
 
 
 @app.route("/")

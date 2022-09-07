@@ -58,13 +58,13 @@ def process_covid_prediction(boroughKey):
             x_train, (x_train.shape[0], x_train.shape[1], 1))
         # Build the LSTM model
         # model = tf.keras.Sequential(
-        #     [
-        #         layers.LSTM(50, return_sequences=True,
-        #                     input_shape=(x_train.shape[1], 1)),
-        #         layers.LSTM(50, return_sequences=False),
-        #         layers.Dense(25),
-        #         layers.Dense(1)
-        #     ]
+        #   [
+        #       layers.LSTM(50, return_sequences=True,
+        #                   input_shape=(x_train.shape[1], 1)),
+        #       layers.LSTM(50, return_sequences=False),
+        #       layers.Dense(25),
+        #       layers.Dense(1)
+        #   ]
         # )
         model = tf.keras.Sequential(
             [
