@@ -2,10 +2,11 @@ import React from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Body from "../components/Body";
+import { getCovidData } from "../utils/hooks";
 
 import styles from "../styles/Home.module.scss";
 
-export default function Home() {
+export default function Home({ covidData }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -25,7 +26,7 @@ export default function Home() {
           title="NYC COVID-19 Resource Allocation Data Product"
           subtitle="by Dave Mozdzanowski, for BSCS C964 capstone"
         />
-        <Body addlClassNames={styles.grid} />
+        <Body covidData={covidData} />
       </main>
 
       <div className={styles.source}>
@@ -46,4 +47,14 @@ export default function Home() {
       </footer>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const covidData = await getCovidData();
+
+  return {
+    props: {
+      covidData,
+    },
+  };
 }

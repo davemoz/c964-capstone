@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useCovidData } from "../utils/hooks";
 import moment from "moment";
 import StickySidebar from "./StickySidebar";
 import PredictionResults from "./dataViews/PredictionResults";
 
-const Body = () => {
-  const json = useCovidData();
-
-  const [dates, setDates] = useState(null);
+const Body = ({ covidData }) => {
+  const [dates, setDates] = useState([]);
   const [lastDataDate, setLastDataDate] = useState(null);
   const [predictDate, setPredictDate] = useState(null);
   const [isPredictionLoading, setIsPredictionLoading] = useState(false);
@@ -15,15 +12,14 @@ const Body = () => {
 
   useEffect(() => {
     let datesArray = [];
-    json &&
-      json.map((day) => {
-        datesArray.push(day["date_of_interest"]);
-      });
+    covidData?.map((day) => {
+      datesArray.push(day["date_of_interest"]);
+    });
     setDates(datesArray);
-  }, [json]);
+  }, [covidData]);
 
   useEffect(() => {
-    if (!!dates) {
+    if (dates?.length > 0) {
       setLastDataDate(moment(dates[dates.length - 1]));
       setPredictDate(moment(dates[dates.length - 1]).add(1, "days"));
     }

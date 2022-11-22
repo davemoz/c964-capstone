@@ -7,7 +7,6 @@
 
 .absolute_wrap {
   position: absolute;
-  overflow-y: scroll;
   padding-bottom: 90px;
 
   .lt_grey_box {
@@ -35,7 +34,6 @@
 .alert_text {
   color: orangered;
   margin-bottom: 10px;
-  width: 270px;
 }
 
 .borough_select {

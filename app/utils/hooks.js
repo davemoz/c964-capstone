@@ -2,18 +2,8 @@ import { useState } from "react";
 import { NYC_COVID_DATA_JSON, NYC_BOROUGH_BOUNDARIES_JSON } from "./constants";
 import { json } from "d3-fetch";
 
-export const useCovidData = () => {
-  const [data, setData] = useState(undefined);
-
-  const getData = async () => {
-    if (data) {
-      return data;
-    }
-
-    setData(await json(NYC_COVID_DATA_JSON));
-  };
-  getData();
-
+export const getCovidData = async () => {
+  const data = await json(NYC_COVID_DATA_JSON);
   return data;
 };
 
@@ -34,7 +24,7 @@ export const useBoroughBoundaries = () => {
 
 export const useFetch = async (
   endpoint,
-  boroughKey,
+  // boroughKey,
   setIsLoadingFunc,
   setResultsFunc,
   setAlertFunc,
@@ -43,21 +33,29 @@ export const useFetch = async (
   setIsLoadingFunc(true);
 
   // Check if we already retrieved the borough data
-  if (results && Object.keys(results).includes(boroughKey)) {
+  if (results) {
     setIsLoadingFunc(false);
     return results;
   }
+  /*
+	if (results && Object.keys(results).includes(boroughKey)) {
+    setIsLoadingFunc(false);
+    return results;
+  }
+	*/
 
   // Check that borough is selected for new fetch
-  if (boroughKey === "default") {
+  /*
+	if (boroughKey === "default") {
     setIsLoadingFunc(false);
     setAlertFunc("Please choose a borough before submitting.");
     return;
   }
+	*/
 
   // Fetch borough data
   const url = new URL(endpoint);
-  url.searchParams.append("borough", boroughKey);
+  // url.searchParams.append("borough", boroughKey);
   try {
     const data = await fetch(url)
       .then((response) => response.json())

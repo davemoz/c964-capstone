@@ -21,7 +21,7 @@ const StickySidebar = ({
   const _handleSubmit = () => {
     return useFetch(
       GCLOUD_PROCESS_COVID_FUNCTION_ENDPOINT,
-      selectedBorough,
+      // selectedBorough,
       setPredictionLoadingFunc,
       setPredictionResultsFunc,
       setAlertText
@@ -58,12 +58,12 @@ const StickySidebar = ({
             {lastDataDate && lastDataDate.format("MMMM D, YYYY")}.
           </p>
           <p className={styles.box_sub}>
-            Choose a borough from the dropdown and click the button to generate a case number prediction for that borough for the next day: <b>{predictDate && predictDate.format("MMMM D, YYYY")}</b>
+            Click the button to generate a case number prediction for the next day: <b>{predictDate && predictDate.format("MMMM D, YYYY")}</b>
           </p>
-          <select className={styles.borough_select} value={selectedBorough} onBlur={_handleSelectBlur} onChange={_handleSelectChange}>
+          {/* <select className={styles.borough_select} value={selectedBorough} onBlur={_handleSelectBlur} onChange={_handleSelectChange}>
             <option disabled={true} hidden={true} value="default">Select a borough...</option>
             {Object.keys(boroughs).map(borough => <option key={borough} value={boroughs[borough]}>{borough}</option>)}
-          </select>
+          </select> */}
           <PredictButton
             submitFunc={_handleSubmit}
             resetFunc={_handleReset}
