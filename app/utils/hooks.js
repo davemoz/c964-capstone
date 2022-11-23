@@ -4,7 +4,8 @@ import { json } from "d3-fetch";
 
 export const getCovidData = async () => {
   const data = await json(NYC_COVID_DATA_JSON);
-  return data;
+  const extractedDatesArr = data?.map((item) => item.date_of_interest);
+  return extractedDatesArr;
 };
 
 export const useBoroughBoundaries = () => {
@@ -24,7 +25,6 @@ export const useBoroughBoundaries = () => {
 
 export const useFetch = async (
   endpoint,
-  // boroughKey,
   setIsLoadingFunc,
   setResultsFunc,
   setAlertFunc,
@@ -37,25 +37,9 @@ export const useFetch = async (
     setIsLoadingFunc(false);
     return results;
   }
-  /*
-	if (results && Object.keys(results).includes(boroughKey)) {
-    setIsLoadingFunc(false);
-    return results;
-  }
-	*/
-
-  // Check that borough is selected for new fetch
-  /*
-	if (boroughKey === "default") {
-    setIsLoadingFunc(false);
-    setAlertFunc("Please choose a borough before submitting.");
-    return;
-  }
-	*/
 
   // Fetch borough data
   const url = new URL(endpoint);
-  // url.searchParams.append("borough", boroughKey);
   try {
     const data = await fetch(url)
       .then((response) => response.json())

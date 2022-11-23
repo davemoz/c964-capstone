@@ -26,7 +26,7 @@ export default function Home({ covidData }) {
           title="NYC COVID-19 Resource Allocation Data Product"
           subtitle="by Dave Mozdzanowski, for BSCS C964 capstone"
         />
-        <Body covidData={covidData} />
+        <Body covidDates={covidData} />
       </main>
 
       <div className={styles.source}>

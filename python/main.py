@@ -12,8 +12,8 @@ CORS(app, supports_credentials=True, origins=[
 def do_predict():
     # Get params from the request
     borough = request.args.get("borough")
-    if not borough:
-        raise InvalidArg('Borough argument is missing.', status_code=410)
+    # if not borough:
+    #     raise InvalidArg('Borough argument is missing.', status_code=410)
     data = predict.process_covid_prediction(borough)
     return data
 
