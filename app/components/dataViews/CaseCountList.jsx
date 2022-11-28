@@ -20,8 +20,9 @@ const CaseCountList = ({ predictDate, predictionResults }) => {
       setHighestCount(
         Math.max.apply(
           Math,
-          Object.keys(predictionResults).map((key) => {
-            return Math.round(predictionResults[key].prediction);
+          predictionResults.map((obj) => {
+            const key = Object.keys(obj)[0];
+            return Math.round(obj[key].prediction);
           })
         )
       );
@@ -46,7 +47,7 @@ const CaseCountList = ({ predictDate, predictionResults }) => {
               return (
                 <li
                   key={key}
-                  className={`${styles.results_item} ${num === highestCount ? "highest" : ""}`}
+                  className={`${styles.results_item} ${num === highestCount ? styles.highest : ""}`}
                 >
                   {name}: {num}
                 </li>
