@@ -43,16 +43,8 @@ export const useFetch = async (
   try {
     const data = await fetch(url)
       .then((response) => response.json())
-      .then((resData) => {
-        return resData;
-      });
-    setResultsFunc((prevValue) =>
-      prevValue.map((obj, idx) =>
-        Object.keys(obj)[0] === Object.keys(data)[0]
-          ? (prevValue[idx] = data)
-          : prevValue.append(data)
-      )
-    );
+      .then((resData) => resData);
+    setResultsFunc(data);
     setIsLoadingFunc(false);
   } catch (error) {
     setIsLoadingFunc(false);

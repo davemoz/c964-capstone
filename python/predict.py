@@ -1,4 +1,4 @@
-def process_covid_prediction(boroughKey):
+def process_covid_prediction():
     import math
     # import multiprocessing
     # from joblib import Parallel, delayed
@@ -20,15 +20,15 @@ def process_covid_prediction(boroughKey):
     # all_case_count = df.filter(['case_count'])
 
     # Separate column names into borough variables
-    bx_names = ['bx_case_count']
-    bk_names = ['bk_case_count']
-    mn_names = ['mn_case_count']
-    qn_names = ['qn_case_count']
-    si_names = ['si_case_count']
-    boroughs = {'bx': bx_names, 'bk': bk_names,
-                'mn': mn_names, 'qn': qn_names, 'si': si_names}
+    bx_col_names = ['bx_case_count']
+    bk_col_names = ['bk_case_count']
+    mn_col_names = ['mn_case_count']
+    qn_col_names = ['qn_case_count']
+    si_col_names = ['si_case_count']
+    boroughs = {'bx': bx_col_names, 'bk': bk_col_names,
+                'mn': mn_col_names, 'qn': qn_col_names, 'si': si_col_names}
 
-    all_borough_data = {}
+    all_borough_data = []
 
     '''Function to prepare, scale, and create training subset of data'''
     def prepareData(data, scaler, num_training_days):
@@ -54,7 +54,7 @@ def process_covid_prediction(boroughKey):
         return x_train, y_train, training_data_len, train_df, scaled_train_data
 
     '''Creates the array and object for export to the frontend'''
-    def createDataExport(scaled_train_data, actual_case_nums, predicted_cases, prediction, scaler, borough):
+    def createDataExport(scaled_train_data, actual_case_nums, predicted_cases, prediction, scaler):
         # Export data for frontend
         exportObj = {}
         # trainObj['training'] = [item for sublist in (
@@ -72,19 +72,13 @@ def process_covid_prediction(boroughKey):
         exportObj['prediction'] = [item for sublist in (
             prediction.tolist()) for item in sublist]
 
-        all_borough_data[borough] = exportObj
-
-        return all_borough_data
+        return exportObj
 
     # Create model, train, and predict for each borough
-    def do_predictions(boroughKey):
-        allBoroughs = {}
-        if boroughKey != "all":
-            allBoroughs[boroughKey] = boroughs[boroughKey]
-
-        for borough in allBoroughs:
-            # Get all data for chosen borough
-            data = df.filter(allBoroughs[borough])
+    def do_predictions():
+        for borough in boroughs:
+            # Get all data for each borough
+            data = df.filter(boroughs[borough])
 
             # Set number of days to "look back" for training
             num_training_days = 60
@@ -157,16 +151,16 @@ def process_covid_prediction(boroughKey):
             prediction = model.predict(real_data)
             prediction = scaler.inverse_transform(prediction)
 
-            return createDataExport(
-                scaled_train_data,
-                actual_case_nums,
-                predicted_cases,
-                prediction,
-                scaler,
-                borough
+            all_borough_data.append(
+                {borough: createDataExport(
+                    scaled_train_data,
+                    actual_case_nums,
+                    predicted_cases,
+                    prediction,
+                    scaler
+                )}
             )
 
-    if boroughKey:
-        return do_predictions(boroughKey)
-    else:
-        return do_predictions("all")
+        return all_borough_data
+
+    return do_predictions()
