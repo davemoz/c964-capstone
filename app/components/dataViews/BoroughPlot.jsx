@@ -1,5 +1,31 @@
+import React from "react";
 import PropTypes from "prop-types";
-import Plot from "react-plotly.js";
+import dayjs from 'dayjs';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend,
+  LineController,
+  ScatterController,
+} from 'chart.js';
+import { Chart } from 'react-chartjs-2';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend,
+  LineController,
+  ScatterController,
+);
 
 // import styles from "../../styles/BoroughPlot.module.scss";
 
@@ -39,71 +65,78 @@ const BoroughPlot = ({
   validationData,
   predictionPoint,
 }) => {
+  const options = {
+    responsive: true,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    stacked: false,
+    plugins: {
+      title: {
+        display: true,
+        text: `Covid-19 Case Count Prediction - ${name}`
+      }
+    }
+  };
+
+  const labels = [...trainDates, ...testDates, ...predictDate].map(date => dayjs(date).format('MMM D \'YY'));
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        type: 'line',
+        label: 'Training',
+        data: trainingData.map((row, idx) => ({
+          x: dayjs(trainDates[idx]).format('MMM D \'YY'),
+          y: row
+        })),
+        borderColor: '#4a90e2',
+        pointRadius: 0,
+        order: 4
+      },
+      {
+        type: 'line',
+        label: 'Validation',
+        data: validationData.map((row, idx) => ({
+          x: dayjs(testDates[idx]).format('MMM D \'YY'),
+          y: row
+        })),
+        borderColor: 'orangered',
+        pointRadius: 0,
+        order: 3
+      },
+      {
+        type: 'line',
+        label: 'Predicted',
+        data: predictionsData.map((row, idx) => ({
+          x: dayjs(testDates[idx]).format('MMM D \'YY'),
+          y: row
+        })),
+        borderColor: 'gold',
+        pointRadius: 0,
+        order: 2
+      },
+      {
+        type: 'scatter',
+        label: 'Prediction',
+        data: [
+          {
+            x: dayjs(predictDate).format('MMM D \'YY'),
+            y: Math.round(predictionPoint)
+          }
+        ],
+        borderColor: 'green',
+        backgroundColor: 'green',
+        order: 1
+      }
+    ]
+  }
+
   return (
     <div className="plot_box">
-      <Plot
-        data={[
-          {
-            x: trainDates ? trainDates : [],
-            y: trainingData ? trainingData : [],
-            type: "scatter",
-            line: {
-              width: 3,
-              color: "#4a90e2",
-            },
-            mode: "lines",
-            name: "Training",
-          },
-          {
-            x: testDates ? testDates : [],
-            y: validationData ? validationData : [],
-            type: "scatter",
-            line: {
-              width: 3,
-              color: "orangered",
-            },
-            mode: "lines",
-            name: "Validation",
-          },
-          {
-            x: testDates ? testDates : [],
-            y: predictionsData ? predictionsData : [],
-            type: "scatter",
-            line: {
-              width: 3,
-              color: "gold",
-            },
-            mode: "lines",
-            name: "Predicted",
-          },
-          {
-            x: predictDate ? predictDate : "",
-            y: predictionPoint
-              ? predictionPoint.map((num) => Math.round(num))
-              : [],
-            type: "scatter",
-            marker: {
-              color: "green",
-              size: 10,
-            },
-            mode: "markers",
-            name: "Prediction",
-            text: "Predicted case number",
-            textposition: "top left",
-          },
-        ]}
-        layout={{
-          // width: 1200,
-          // height: 400,
-          title: `Covid-19 Case Count Prediction - <b>${name}</b>`,
-          autosize: true,
-        }}
-        useResizeHandler={true}
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-      />
+      <Chart type="line" options={options} data={data} />
     </div>
   );
 };

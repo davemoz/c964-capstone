@@ -26,7 +26,7 @@ const StickySidebar = ({
   };
 
   const _handleReset = () => {
-    setPredictionResultsFunc(null);
+    setPredictionResultsFunc([]);
     setAlertText(null);
   };
 

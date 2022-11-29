@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
-import moment from "moment";
+import dayjs from "dayjs";
 import StickySidebar from "./StickySidebar";
 import PredictionResults from "./dataViews/PredictionResults";
 
 const Body = ({ covidDates }) => {
-  const [lastDataDate, setLastDataDate] = useState(moment());
-  const [predictDate, setPredictDate] = useState(moment());
+  const [lastDataDate, setLastDataDate] = useState(dayjs());
+  const [predictDate, setPredictDate] = useState(dayjs());
   const [isPredictionLoading, setIsPredictionLoading] = useState(false);
   const [predictionResults, setPredictionResults] = useState([]);
 
   useEffect(() => {
     if (covidDates?.length > 0) {
-      setLastDataDate(moment(covidDates[covidDates.length - 1]));
-      setPredictDate(moment(covidDates[covidDates.length - 1]).add(1, "days"));
+      setLastDataDate(dayjs(covidDates[covidDates.length - 1]));
+      setPredictDate(dayjs(covidDates[covidDates.length - 1]).add(1, "days"));
     }
   }, [covidDates]);
 

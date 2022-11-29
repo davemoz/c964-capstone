@@ -1,26 +1,13 @@
-import { useState } from "react";
-import { NYC_COVID_DATA_JSON, NYC_BOROUGH_BOUNDARIES_JSON } from "./constants";
-import { json } from "d3-fetch";
+import { NYC_COVID_DATA_JSON } from "./constants";
 
 export const getCovidData = async () => {
-  const data = await json(NYC_COVID_DATA_JSON);
-  const extractedDatesArr = data?.map((item) => item.date_of_interest);
+  const res = await fetch(NYC_COVID_DATA_JSON);
+  if (!res.ok) {
+    throw new Error(`There was an error fetching the data: ${res.statusText}`);
+  }
+  const json = await res.json();
+  const extractedDatesArr = json?.map((item) => item.date_of_interest);
   return extractedDatesArr;
-};
-
-export const useBoroughBoundaries = () => {
-  const [boroughBoundaries, setBoroughBoundaries] = useState(undefined);
-
-  const getBoundaries = async () => {
-    if (boroughBoundaries) {
-      return boroughBoundaries;
-    }
-
-    setBoroughBoundaries(await json(NYC_BOROUGH_BOUNDARIES_JSON));
-  };
-  getBoundaries();
-
-  return boroughBoundaries;
 };
 
 export const useFetch = async (
