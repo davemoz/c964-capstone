@@ -6,3 +6,5 @@ pandas
 scikit-learn
 tensorflow
 keras
+google-cloud-secret-manager
+google-cloud-storage

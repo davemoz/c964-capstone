@@ -1,19 +1,39 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from exceptions import InvalidArg
-import predict
+from predict import do_predictions
+from google.cloud import secretmanager
+
+project_id = "102484244946"
+secret_id = "SOCRATA_APP_TOKEN"
+version_id = "1"
+name = f"projects/{project_id}/secrets/{secret_id}/versions/{version_id}"
+client = secretmanager.SecretManagerServiceClient()
+appToken = client.access_secret_version(request={"name": name})
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True, origins=[
-     "https://c964-capstone.vercel.app", "http://localhost:3001"])
+CORS(
+    app,
+    origins=["https://c964-capstone.vercel.app", "http://localhost:3001"],
+)
 
 
 @app.route("/")
+@cross_origin()
+def helloWorld():
+    print("Hello from here!!!!!!!!!!!!!")
+    return "Hello, world!"
+
+
+@app.route("/predict")
+@cross_origin()
 def do_predict():
     # Get params from the request
     # borough = request.args.get("borough")
-    data = predict.process_covid_prediction()
-    return data
+    data_source = f"https://data.cityofnewyork.us/resource/rc75-m7u3.csv?$$app_token={appToken}&$limit=5000"
+    gcs_bucket_name = "capstone-models"
+    results = do_predictions(data_source, gcs_bucket_name)
+    return jsonify(results)
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Spinner from "./Spinner";
 
-import styles from "../styles/PredictButton.module.scss";
+import styles from "~/styles/PredictButton.module.scss";
 
 const propTypes = {
   /** Function for submitting a request to the prediction server */

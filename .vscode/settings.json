@@ -1,6 +1,0 @@
-{
-  "eslint.workingDirectories": [
-    "./app",
-  ],
-  "python.analysis.typeCheckingMode": "basic"
-}
