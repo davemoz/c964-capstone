@@ -1,17 +1,18 @@
-import { NYC_COVID_DATA_JSON } from "./constants";
+import { NYC_COVID_DATA_JSON } from './constants';
 
 export const getCovidData = async () => {
-  const fetch_url = `${NYC_COVID_DATA_JSON}?$limit=5000`;
+  const fetch_url = `${NYC_COVID_DATA_JSON}?$$app_token=${process.env.SOCRATA_APP_TOKEN}&$limit=5000`;
   const res = await fetch(fetch_url, {
-    headers: {
-      "X-App-Token": process.env.SOCRATA_APP_TOKEN,
-    },
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json' },
   });
   if (!res.ok) {
-    throw new Error(`There was an error fetching the data: ${res.statusText}`);
+    throw new Error(
+      `There was an error fetching the data: ${res.status} ${res.statusText}`,
+    );
   }
   const json = await res.json();
-  const extractedDatesArr = json?.map((item) => item.date_of_interest);
+  const extractedDatesArr = json?.map(item => item.date_of_interest);
   return extractedDatesArr;
 };
 
@@ -20,7 +21,7 @@ export const useFetch = async (
   setIsLoadingFunc,
   setResultsFunc,
   setAlertFunc,
-  results
+  results,
 ) => {
   setIsLoadingFunc(true);
 
