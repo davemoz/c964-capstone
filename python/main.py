@@ -6,10 +6,11 @@ from google.cloud import secretmanager
 
 project_id = "102484244946"
 secret_id = "SOCRATA_APP_TOKEN"
-version_id = "1"
-name = f"projects/{project_id}/secrets/{secret_id}/versions/{version_id}"
+name = f"projects/{project_id}/secrets/{secret_id}/versions/latest"
 client = secretmanager.SecretManagerServiceClient()
-appToken = client.access_secret_version(request={"name": name})
+appToken = client.access_secret_version(request={"name": name}).payload.data.decode(
+    "UTF-8"
+)
 
 app = Flask(__name__)
 CORS(

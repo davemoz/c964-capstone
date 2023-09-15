@@ -2,10 +2,7 @@ import { NYC_COVID_DATA_JSON } from './constants';
 
 export const getCovidData = async () => {
   const fetch_url = `${NYC_COVID_DATA_JSON}?$$app_token=${process.env.SOCRATA_APP_TOKEN}&$limit=5000`;
-  const res = await fetch(fetch_url, {
-    credentials: 'include',
-    headers: { 'Content-Type': 'application/json' },
-  });
+  const res = await fetch(fetch_url);
   if (!res.ok) {
     throw new Error(
       `There was an error fetching the data: ${res.status} ${res.statusText}`,

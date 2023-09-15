@@ -6,6 +6,7 @@ import tensorflow as tf
 from pandas import read_csv
 from sklearn.preprocessing import MinMaxScaler
 from keras import layers
+from keras.saving import load_model
 from google.cloud import storage
 
 # Initialize the GCP Storage client
@@ -72,6 +73,7 @@ def train_model(
 def evaluate_model(
     model, data, scaler, training_data_len, train_df, num_training_days=60
 ):
+    print("Evaluating model...")
     test_df = data.iloc[training_data_len:, :]
     actual_case_nums = test_df.values
 
@@ -101,6 +103,7 @@ def evaluate_model(
     prediction = model.predict(real_data)
     prediction = scaler.inverse_transform(prediction)
 
+    print("Model evaluated. Predictions made.")
     return actual_case_nums, predicted_cases, prediction
 
 
@@ -151,7 +154,7 @@ def load_model_from_gcs(gcs_bucket_name, model_filename):
     modelpath = f"{model_filename}.keras"
     fullpath = f"{temppath}{modelpath}"
     blob.download_to_filename(f"{fullpath}")
-    return tf.keras.models.load_model(f"{fullpath}")
+    return load_model(f"{fullpath}")
 
 
 def do_predictions(data_source, gcs_bucket_name):
@@ -205,6 +208,9 @@ def do_predictions(data_source, gcs_bucket_name):
         actual_case_nums, predicted_cases, prediction = evaluate_model(
             model, data, scaler, training_data_len, train_df
         )
+
+        # Cleanup model in memory
+        del model
 
         all_borough_data.append(
             {
