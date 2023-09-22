@@ -11,19 +11,19 @@
   },
   "dependencies": {
     "chart.js": "^4.4.0",
-    "dayjs": "^1.11.9",
-    "next": "13.4.19",
+    "dayjs": "^1.11.10",
+    "next": "13.5.2",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.67.0"
+    "sass": "^1.68.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^13.4.19",
+    "@next/eslint-plugin-next": "^13.5.2",
     "classnames": "^2.3.2",
     "eslint": "8.49.0",
-    "eslint-config-next": "13.4.19",
+    "eslint-config-next": "13.5.2",
     "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.0.3"
   }
