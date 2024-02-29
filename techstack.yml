@@ -2,7 +2,7 @@ repo_name: davemoz/c964-capstone
 report_id: 7a8b326055e80b80c4589c8dd41a69e7
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-05T09:11:42+00:00'
+timestamp: '2024-02-29T18:17:43+00:00'
 requested_by: davemoz
 provider: github
 branch: master
@@ -44,7 +44,7 @@ tools:
   last_updated_by: dmozdzanowski
   last_updated_on: 2023-09-14 21:48:20.000000000 Z
 - name: Next.js
-  description: 'A small framework for server-rendered universal JavaScript apps '
+  description: A small framework for server-rendered universal JavaScript apps
   website_url: https://nextjs.org/
   version: 13.5.2
   open_source: true
@@ -155,7 +155,7 @@ tools:
   detection_source_url: https://github.com/davemoz/c964-capstone
   detection_source: Repo Metadata
 - name: Prettier
-  description: 'Prettier is an opinionated code formatter. '
+  description: Prettier is an opinionated code formatter.
   website_url: https://prettier.io/
   version: 3.0.3
   license: MIT
