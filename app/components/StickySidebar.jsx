@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { GCLOUD_PROCESS_COVID_FUNCTION_ENDPOINT } from "../utils/constants";
 import { useFetch } from "../utils/hooks";
 import PredictButton from "./PredictButton";
@@ -16,19 +16,22 @@ const StickySidebar = ({
 }) => {
   const [alertText, setAlertText] = useState(null);
 
-  const _handleSubmit = () => {
-    return useFetch(
-      GCLOUD_PROCESS_COVID_FUNCTION_ENDPOINT,
-      setPredictionLoadingFunc,
-      setPredictionResultsFunc,
-      setAlertText
-    );
-  };
+  const { doFetch } = useFetch(
+    GCLOUD_PROCESS_COVID_FUNCTION_ENDPOINT,
+    setPredictionLoadingFunc,
+    setPredictionResultsFunc,
+    setAlertText,
+    predictionResults
+  );
 
-  const _handleReset = () => {
+  const _handleSubmit = useCallback(() => {
+    doFetch();
+  }, [doFetch]);
+
+  const _handleReset = useCallback(() => {
     setPredictionResultsFunc([]);
     setAlertText(null);
-  };
+  }, [setPredictionResultsFunc, setAlertText]);
 
   return (
     <div className={styles.sticky_wrap}>

@@ -20,29 +20,32 @@ export const useFetch = async (
   setAlertFunc,
   results,
 ) => {
-  setIsLoadingFunc(true);
-
   // Check if we already retrieved the borough data
   if (results) {
     setIsLoadingFunc(false);
     return results;
   }
 
-  // Fetch borough data
-  const url = new URL(endpoint);
-  try {
-    const res = await fetch(url);
-    if (res.ok) {
-      const json = await res.json();
-      if (json) {
-        setResultsFunc(json);
-        setIsLoadingFunc(false);
-        return;
+  const doFetch = async () => {
+    setIsLoadingFunc(true);
+    // Fetch borough data
+    const url = new URL(endpoint);
+    try {
+      const res = await fetch(url);
+      if (res.ok) {
+        const json = await res.json();
+        if (json) {
+          setResultsFunc(json);
+          setIsLoadingFunc(false);
+          return;
+        }
       }
+      setAlertFunc(`There was an error fetching the data: ${res.statusText}`);
+    } catch (error) {
+      setIsLoadingFunc(false);
+      setAlertFunc(`There was an error fetching the data: ${error}`);
     }
-    setAlertFunc(`There was an error fetching the data: ${res.statusText}`);
-  } catch (error) {
-    setIsLoadingFunc(false);
-    setAlertFunc(`There was an error fetching the data: ${error}`);
-  }
+  };
+
+  return { doFetch };
 };
