@@ -10,22 +10,22 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "chart.js": "^4.4.7",
+    "chart.js": "^4.5.0",
     "dayjs": "^1.11.13",
-    "next": "^15.2.4",
+    "next": "^15.4.6",
     "prop-types": "^15.8.1",
-    "react": "18.3.1",
-    "react-chartjs-2": "^5.2.0",
-    "react-dom": "18.3.1",
-    "sass": "^1.86.1"
+    "react": "19.1.1",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "19.1.1",
+    "sass": "^1.90.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.2.4",
+    "@next/eslint-plugin-next": "^15.4.6",
     "classnames": "^2.5.1",
-    "eslint": "9.17.0",
-    "eslint-config-next": "^15.2.4",
-    "eslint-config-prettier": "^10.1.1",
-    "prettier": "^3.4.2"
+    "eslint": "9.33.0",
+    "eslint-config-next": "^15.4.6",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2"
   },
   "packageManager": "pnpm@9.1.1+sha256.9551e803dcb7a1839fdf5416153a844060c7bce013218ce823410532504ac10b"
 }
